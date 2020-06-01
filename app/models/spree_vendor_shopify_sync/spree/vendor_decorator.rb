@@ -10,7 +10,7 @@ Spree::Vendor.class_eval do
         provider: 'shopify', 
         status: 'OK',
         action: 'vendor_sync', options: {
-          encrypted_shopify_api_token: shopify_token, 
+          shopify_token: shopify_token, 
           shopify_shop: shopify_domain
         }
       )

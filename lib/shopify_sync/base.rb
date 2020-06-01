@@ -9,8 +9,8 @@ class ShopifySync::Base
 
 	def session
 		ShopifyAPI::Session.new(
-    	domain: vendor.shopify_shop, 
-    	token: vendor.shopify_api_token, 
+    	domain: vendor.shopify_domain, 
+    	token: vendor.shopify_token, 
     	api_version: ENV['SHOPIFY_API_VERSION'], 
     	extra: {}
     )

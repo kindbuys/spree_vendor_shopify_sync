@@ -46,14 +46,14 @@ module Spree
 
       def sync_product
         domain = request.headers["X-Shopify-Shop-Domain"]
-        vendor = Spree::Vendor.find_by(shopify_shop: domain)
+        vendor = Spree::Vendor.find_by(shopify_domain: domain)
         ShopifyProductImport.perform_async(vendor.id, params[:id])
         render json: {status: :ok}
       end
 
       def delete_product
         domain = request.headers["X-Shopify-Shop-Domain"]
-        vendor = Spree::Vendor.find_by(shopify_shop: domain)
+        vendor = Spree::Vendor.find_by(shopify_domain: domain)
         product = vendor.products.find_by(shopify_id: params[:id])
         product.destroy if product.present?
         render json: {status: :ok}
@@ -150,8 +150,8 @@ module Spree
         vendor = Spree::Vendor.friendly.find(session[:vendor])
         
         if vendor.present? && access_token.present?
-          vendor.shopify_api_token = access_token
-          vendor.shopify_shop = params[:shop]
+          vendor.shopify_token = access_token
+          vendor.shopify_domain = params[:shop]
           vendor.save
         end
       end

@@ -1,5 +1,5 @@
 <div>
-	<div class='mb-3'><i><%= vendor.shopify_shop %></i></div>
+	<div class='mb-3'><i><%= vendor.shopify_domain %></i></div>
 	<button class='btn btn-primary' type='button' id='import-shopify-btn'>
 		Import Shopify Products
 	</button>
@@ -28,7 +28,7 @@
 				<tr>
 					<td><%= log.created_at_str %></td>
 					<td><%= log.action_str %></td>
-					<td><%= log.options['shopify_shop'] %></td>
+					<td><%= log.options['shopify_domain'] %></td>
 					<td><%= log.options['status'] %></td>
 					<td><%= log.options['message'] %></td>
 				</tr>

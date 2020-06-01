@@ -26,7 +26,7 @@ Spree::Order.class_eval do
 		vendor_arr = []
 
 		line_items.each do |line_item|
-			if line_item.product.vendor.try(:shopify_api_token).present?
+			if line_item.product.vendor.try(:shopify_token).present?
 				vendor_arr << line_item.product.vendor
 			end
 		end
