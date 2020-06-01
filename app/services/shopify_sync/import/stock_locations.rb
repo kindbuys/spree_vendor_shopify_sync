@@ -6,9 +6,9 @@ class ShopifySync::Import::StockLocations
 
 	def sync_stock_location
 		sleep(0.5)
-		spree_stock_location = get_stock_location(@shopify_location)
-		spree_country = get_country(@shopify_location)
-		spree_state = get_state(@shopify_location, spree_country)
+		spree_stock_location = get_stock_location
+		spree_country = get_country
+		spree_state = get_state(spree_country)
 
 		spree_stock_location.update_attributes!(
 			shopify_id: @shopify_location_id,
@@ -33,7 +33,6 @@ class ShopifySync::Import::StockLocations
 	private
 
 	def get_stock_location
-		binding.pry
 		existing_stock_location = Spree::StockLocation.find_by(name: @shopify_location.name, vendor_id: @vendor.id)
 		existing_stock_location.present? ? existing_stock_location : @vendor.stock_locations.new(name: @shopify_location.name)
 	end
