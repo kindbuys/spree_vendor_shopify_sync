@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Spree::Core::Engine.add_routes do
   #root :to => 'home#index'
   get "/admin/shopify_sync", to: "home#index"
   mount ShopifyApp::Engine, at: '/admin/shopify_sync'
