@@ -1,4 +1,4 @@
-class ShopifySync::Import::Options
+class ShopifySync::Import::Images
 	def initialize(spree_product, shopify_product)
 		@spree_product = spree_product
 		@shopify_product = shopify_product
