@@ -28,7 +28,6 @@ class ShopifySync::Import::Products
 			spree_product.master.update_attributes!(shopify_id: spree_product.shopify_id)
 
 			ShopifySync::Import::Taxons.new(shopify_product.product_type, spree_product).save_taxon
-			binding.pry
 			option_values = ShopifySync::Import::Options.new(shopify_product, vendor).sync_options
 			ShopifySync::Import::Variants.new(spree_product, shopify_product, option_values, vendor).sync_variants
 			ShopifySync::Import::Images.new(spree_product, shopify_product).sync_images
