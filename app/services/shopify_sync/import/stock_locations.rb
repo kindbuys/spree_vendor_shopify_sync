@@ -33,6 +33,7 @@ class ShopifySync::Import::StockLocations
 	private
 
 	def get_stock_location
+		binding.pry
 		existing_stock_location = Spree::StockLocation.find_by(name: @shopify_location.name, vendor_id: @vendor.id)
 		existing_stock_location.present? ? existing_stock_location : @vendor.stock_locations.new(name: @shopify_location.name)
 	end
