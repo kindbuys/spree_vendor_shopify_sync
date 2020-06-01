@@ -90,7 +90,7 @@ class ShopifySync::Import::Variants
 			sleep(0.5)
 
 			if inventory_level.present?
-				spree_location = ShopifySync::Import::StockLocations.new(inventory_level.location_id, @vendor).save_stock_location
+				spree_location = ShopifySync::Import::StockLocations.new(inventory_level.location_id, @vendor).sync_stock_location
 				save_stock_item = save_stock_item(spree_location, variant, inventory_level)
 			end
 		end

@@ -40,6 +40,7 @@ class ShopifySync::Import::Products
 			)
 		end
 	rescue => e
+		puts e
 		Spree::SyncLog.create(
 			provider: 'shopify', 
 			action: 'product_import', 

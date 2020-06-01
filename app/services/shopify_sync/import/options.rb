@@ -8,7 +8,6 @@ class ShopifySync::Import::Options
 		option_values = []
 
 		@shopify_product.options.each do |shopify_option|
-			binding.pry
 			sleep(0.5)
 			puts "SYNCING OPTION TYPE #{shopify_option.name} #{@vendor.name}"
 			option_type = get_option_type(shopify_option.name)
