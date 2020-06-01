@@ -1,3 +1,5 @@
+require 'shopify_api'
+
 class ShopifyWebhookSubscribe
 	include Sidekiq::Worker
 
