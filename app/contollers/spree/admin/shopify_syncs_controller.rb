@@ -32,7 +32,6 @@ module Spree
             flash[:success] = "Success! #{params[:shop]} is now linked to KindBuys"
 
             save_access_token(response)
-            ShopifyWebhookSubscribe.perform_async(@vendor.id)
           end
         else
           flash[:error] = "Invalid Request"

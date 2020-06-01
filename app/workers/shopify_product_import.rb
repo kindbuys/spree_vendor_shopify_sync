@@ -1,4 +1,3 @@
-
 class ShopifyProductImport
   include Sidekiq::Worker
   include Sidekiq::Throttled::Worker

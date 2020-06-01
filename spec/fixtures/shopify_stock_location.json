@@ -1,0 +1,18 @@
+{
+   "id": 36296425556,
+   "name": "Nancy's Nauticals",
+   "address1": "1111 Main St.",
+   "address2": null,
+   "city": "San Diego",
+   "zip": "92111",
+   "province": "California",
+   "country": "US",
+   "phone": "",
+   "created_at": "2020-04-30T10:39:17-04:00",
+   "updated_at": "2020-04-30T10:39:23-04:00",
+   "country_code": "US",
+   "country_name": "United States",
+   "province_code": "CA",
+   "legacy": false,
+   "active": true
+}

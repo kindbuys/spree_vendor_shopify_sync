@@ -1,0 +1,126 @@
+{
+	"id": "12345",
+ 	"tags": "asics-tiger, autumn, egnition-sample-data, men, spring",
+ 	"image": {
+ 		"id": 14645299413076, 
+  	"position": 1, 
+  	"created_at": "2020-04-30T10:41:59-04:00", 
+  	"updated_at": "2020-04-30T10:41:59-04:00", 
+  	"alt": "", 
+  	"width": 635, 
+  	"height": 560, 
+  	"src": "https://cdn.shopify.com/s/files/1/0296/5071/4708/products/343bfbfc1a10a39a528a3d34367669c2.jpg?v=1588257719", 
+  	"variant_ids": [], 
+  	"admin_graphql_api_id": "gid://shopify/ProductImage/14645299413076"
+  },
+ 	"title": "ASICS TIGER | GEL-LYTE V '30 YEARS OF GEL' PACK",
+ 	"handle": "asics-tiger-gel-lyte-v-30-years-of-gel-pack",
+ 	"images": [
+ 		{
+ 			"id": 14645299413076, 
+ 			"position": 1, 
+ 			"created_at": "2020-04-30T10:41:59-04:00", 
+ 			"updated_at": "2020-04-30T10:41:59-04:00", 
+ 			"alt": "", 
+ 			"width": 635, 
+ 			"height": 560, 
+ 			"src": "https://cdn.shopify.com/s/files/1/0296/5071/4708/products/343bfbfc1a10a39a528a3d34367669c2.jpg?v=1588257719", 
+ 			"variant_ids": [], 
+ 			"admin_graphql_api_id": "gid://shopify/ProductImage/14645299413076"
+ 		}, 
+ 		{
+ 			"id": 14645299445844, 
+ 			"position": 2, 
+ 			"created_at": "2020-04-30T10:41:59-04:00", 
+ 			"updated_at": "2020-04-30T10:41:59-04:00", 	
+ 			"alt": "", 
+ 			"width": 635, 
+ 			"height": 560, 
+ 			"src": "https://cdn.shopify.com/s/files/1/0296/5071/4708/products/548e71e82d4b2d3bdd2b739b4872edc9.jpg?v=1588257719", 
+ 			"variant_ids": [], 
+ 			"admin_graphql_api_id": "gid://shopify/ProductImage/14645299445844"
+ 		}
+ 	],
+ 	"vendor": "ASICS TIGER",
+ 	"options": [
+ 		{
+ 			"id": 5975075979348, 
+ 			"product_id": 4598448193620, 
+ 			"name": "Size", 
+ 			"position": 1, 
+ 			"values": ["4", "8", "14"]
+ 		}, 
+ 		{
+ 			"id": 5975076012116, 
+ 			"product_id": 4598448193620, 
+ 			"name": "Color", 
+ 			"position": 2, 
+ 			"values": ["black"]
+ 		}
+ 	],
+ 	"variants": [
+ 		{
+ 			"id": 32206529298516, 
+ 			"title": "4 / black", 
+ 			"price": "220.00", 
+ 			"sku": "AsTi-01-black-4", 
+ 			"position": 1, 
+ 			"inventory_policy": "deny", 
+ 			"compare_at_price": "0.00", 
+ 			"fulfillment_service": "manual", 
+ 			"inventory_management": "shopify", 
+ 			"option1": "4", 
+ 			"option2": "black", 
+ 			"option3": "", 
+ 			"created_at": "2020-04-30T10:41:59-04:00", 
+ 			"updated_at": "2020-04-30T10:43:44-04:00", 
+ 			"taxable": true, 
+ 			"barcode": "", 
+ 			"grams": 0,
+ 			"image_id": "", 
+ 			"weight": 0.0, 
+ 			"weight_unit": "lb", 
+ 			"inventory_item_id": 33832003666004, 
+ 			"inventory_quantity": 10, 
+ 			"old_inventory_quantity": 10, 
+ 			"requires_shipping": true, 
+ 			"admin_graphql_api_id": "gid://shopify/ProductVariant/32206529298516"
+ 		}, 
+ 		{
+ 			"id": 32206529331284, 
+ 			"title": "8 / black", 
+ 			"price": "220.00", 
+ 			"sku": "AsTi-01-black-8", 
+ 			"position": 2, 
+ 			"inventory_policy": "deny", 
+ 			"compare_at_price": "0.00", 
+ 			"fulfillment_service": "manual", 
+ 			"inventory_management": "shopify", 
+ 			"option1": "8", 
+ 			"option2": "black", 
+ 			"option3": "", 
+ 			"created_at": "2020-04-30T10:41:59-04:00", 
+ 			"updated_at": "2020-04-30T10:43:44-04:00", 
+ 			"taxable": true, 
+ 			"barcode": "", 
+ 			"grams": 0, 
+ 			"image_id": "", 
+ 			"weight": 0.0, 
+ 			"weight_unit": "lb", 
+ 			"inventory_item_id": 33832003698772, 
+ 			"inventory_quantity": 2, 
+ 			"old_inventory_quantity": 2, 
+ 			"requires_shipping": true, 
+ 			"admin_graphql_api_id": "gid://shopify/ProductVariant/32206529331284"
+ 		} 
+ 	],
+ "body_html": 
+  	"The iconic ASICS Tiger GEL-Lyte III was originally released in 1990. Having over two decades of performance heritage, it offers fine design detailing and a padded split tongue to eliminate tongue movement, built on a sleek silhouette. It comes as no surprise the Gel-Lyte III is a fast growing popular choice for sneaker enthusiasts all over the world.",
+ "created_at": "2020-04-30T10:41:59-04:00",
+ "updated_at": "2020-04-30T10:53:01-04:00",
+ "product_type": "SHOES",
+ "published_at": "2020-04-30T10:41:59-04:00",
+ "published_scope": "web",
+ "template_suffix": "",
+ "admin_graphql_api_id": "gid://shopify/Product/4598448193620"
+}
