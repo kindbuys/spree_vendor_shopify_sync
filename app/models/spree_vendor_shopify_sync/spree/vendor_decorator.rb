@@ -11,7 +11,7 @@ Spree::Vendor.class_eval do
         status: 'OK',
         action: 'vendor_sync', options: {
           shopify_token: shopify_token, 
-          shopify_shop: shopify_domain
+          shopify_domain: shopify_domain
         }
       )
     end

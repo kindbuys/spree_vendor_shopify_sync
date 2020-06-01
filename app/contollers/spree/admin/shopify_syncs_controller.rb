@@ -1,3 +1,5 @@
+require 'shopify_api'
+
 module Spree
   module Admin
     class ShopifySyncsController < Spree::Admin::BaseController
