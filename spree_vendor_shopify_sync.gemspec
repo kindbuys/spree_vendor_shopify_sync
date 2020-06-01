@@ -8,13 +8,13 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_vendor_shopify_sync'
   s.version     = SpreeVendorShopifySync.version
-  s.summary     = 'Add extension summary here'
-  s.description = 'Add (optional) extension description here'
+  s.summary     = "Allow Spree Marketplace Vendors to sync their Spree Stores with their Shopify Stores."
+  s.description = "Allow Spree Marketplace Vendors to sync their Spree Stores with their Shopify Stores."
   s.required_ruby_version = '>= 2.2.7'
 
-  s.author    = 'You'
-  s.email     = 'you@example.com'
-  s.homepage  = 'https://github.com/your-github-handle/spree_vendor_shopify_sync'
+  s.author    = 'Ashley Van De Poel'
+  s.email     = 'ashley@kindbuys.com'
+  s.homepage  = 'https://github.com/kindbuys/spree_vendor_shopify_sync'
   s.license = 'BSD-3-Clause'
 
   s.files       = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
