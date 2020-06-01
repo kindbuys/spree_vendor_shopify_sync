@@ -1,4 +1,4 @@
-require 'shopify_api'
+require 'shopify_app'
 
 ShopifyApp.configure do |config|
   config.application_name = "Spree Vendor Shopify Sync"
