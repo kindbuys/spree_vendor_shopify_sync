@@ -1,0 +1,48 @@
+<div>
+	<div class='mb-3'><i><%= vendor.shopify_shop %></i></div>
+	<button class='btn btn-primary' type='button' id='import-shopify-btn'>
+		Import Shopify Products
+	</button>
+
+	<div class='alert alert-success hidden' id='import-confirmation'>
+		Success!  Your store has been queued up to run a full product sync.
+	</div>
+
+	<div class='alert alert-error hidden' id='import-error'>
+		Oops, something went wrong. Please try again or contact us if you continue to experience problems.
+	</div>
+
+	<hr />
+
+	<h3>Recent Activity</h3>
+	<table>
+		<thead>
+			<th>Date</th>
+			<th>Action</th>
+			<th>Target</th>
+			<th>Status</th>
+			<th>Message</th>
+		</thead>
+		<tbody>
+			<% vendor.sync_logs.each do |log| %>
+				<tr>
+					<td><%= log.created_at_str %></td>
+					<td><%= log.action_str %></td>
+					<td><%= log.options['shopify_shop'] %></td>
+					<td><%= log.options['status'] %></td>
+					<td><%= log.options['message'] %></td>
+				</tr>
+			<% end %>
+			<% vendor.product_sync_logs.each do |log| %>
+				<tr>
+					<td><%= log.created_at_str %></td>
+					<td><%= log.action_str %></td>
+					<td><%= log.options['title'] %></td>
+					<td><%= log.options['status'] %></td>
+					<td><%= log.options['message'] %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+

@@ -1,0 +1,11 @@
+<form action="<%= request_access_admin_shopify_sync_path %>" method="get">
+	<div class="form-group">
+	  <label for="shop">Enter your Shopify Store's URL:</label>
+	  <input type="text" class='form-control' name="shop" placeholder="https://your-shop-url.myshopify.com">
+	  <input type="hidden" name="state" value="<%= session[:state] %>">
+	  <input type="hidden" name="vendor_id" value="<%= @vendor.id %>">
+	</div>
+  <div>
+  	<button class='btn btn-primary' type="submit">Log In</button>
+  </div>
+</form>

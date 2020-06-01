@@ -1,0 +1,13 @@
+<div class='mb-3'>
+	<h2>Shopify Sync</h2>
+</div>
+
+<% if @vendor.shopify_api_token.present? %>
+	<%= render partial: 'request_sync', locals: { vendor: @vendor } %>
+<% else %>
+	<div class='row'>
+		<div class='col-sm-6'>
+			<%= render partial: 'form' %>
+		</div>
+	</div>
+<% end %>
