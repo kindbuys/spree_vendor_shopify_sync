@@ -1,3 +1,5 @@
+require 'shopify_api'
+
 ShopifyApp.configure do |config|
   config.application_name = "Spree Vendor Shopify Sync"
   config.api_key = ENV['SHOPIFY_API_KEY']
