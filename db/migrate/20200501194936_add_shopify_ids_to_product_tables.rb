@@ -1,4 +1,4 @@
-class AddShopifyIdsToProductTables < ActiveRecord::Migration
+class AddShopifyIdsToProductTables < ActiveRecord::Migration[6.0]
   def change
   	add_column :spree_products, :shopify_id, :string
   	add_column :spree_variants, :shopify_id, :string
