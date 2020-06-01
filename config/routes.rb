@@ -1,6 +1,13 @@
 Spree::Core::Engine.add_routes do
-  #root :to => 'home#index'
-  get "/admin/shopify_sync", to: "home#index"
-  mount ShopifyApp::Engine, at: '/admin/shopify_sync'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+	  resource :shopify_sync, only: :show do
+	    collection do
+	      get :confirm
+	      get :request_access
+	      post :sync_product
+	      post :delete_product
+	      get :import_products
+	    end
+	  end
+	end
 end
