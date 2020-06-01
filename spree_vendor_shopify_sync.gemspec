@@ -26,6 +26,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'spree_backend', spree_version
   s.add_dependency 'spree_extension'
 
+  s.add_dependency 'deface'
+  s.add_dependency 'sidekiq'
+  s.add_dependency 'shopify_api'
+  s.add_dependency 'sidekiq-throttled'
+  s.add_dependency 'shopify_app'
+
   s.add_development_dependency 'appraisal'
   s.add_development_dependency 'awesome_print'
   s.add_development_dependency 'capybara'
