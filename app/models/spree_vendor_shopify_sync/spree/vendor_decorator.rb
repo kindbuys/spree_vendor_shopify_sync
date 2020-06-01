@@ -12,12 +12,11 @@ Spree::Vendor.class_eval do
   end
 
   def log_sync
-    if saved_change_to_shopify_token? || saved_change_to_shopify_domain?
+    if saved_change_to_encrypted_shopify_token? || saved_change_to_shopify_domain?
       sync_logs.create(
         provider: 'shopify', 
         status: 'OK',
         action: 'vendor_sync', options: {
-          shopify_token: shopify_token, 
           shopify_domain: shopify_domain
         }
       )
