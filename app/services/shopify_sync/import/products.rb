@@ -27,17 +27,18 @@ class ShopifySync::Import::Products
 
 			spree_product.master.update_attributes!(shopify_id: spree_product.shopify_id)
 
+			ShopifySync::Import::Taxons.new(shopify_product.product_type, spree_product).save_taxon
+			binding.pry
+			option_values = ShopifySync::Import::Options.new(shopify_product, vendor).sync_options
+			ShopifySync::Import::Variants.new(spree_product, shopify_product, option_values, vendor).sync_variants
+			ShopifySync::Import::Images.new(spree_product, shopify_product).sync_images
+
 			spree_product.sync_logs.create(
 				provider: 'shopify', 
 				action: 'product_import', 
 				options: JSON.parse(shopify_product.to_json),
 				status: 'OK'
 			)
-
-			ShopifySync::Import::Taxons.new(shopify_product.product_type, spree_product).save_taxon
-			option_values = ShopifySync::Import::Options.new(shopify_product, vendor).sync_options
-			ShopifySync::Import::Variants.new(spree_product, shopify_product, option_values, vendor).sync_variants
-			ShopifySync::Import::Images.new(spree_product, shopify_product).sync_images
 		end
 	rescue => e
 		Spree::SyncLog.create(

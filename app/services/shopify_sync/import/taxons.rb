@@ -10,5 +10,6 @@ class ShopifySync::Import::Taxons
 
 		taxon = Spree::Taxon.find_or_create_by(name: @shopify_category)
 		Spree::Classification.find_or_create_by(taxon: taxon, product: @product)
+		binding.pry
 	end
 end
