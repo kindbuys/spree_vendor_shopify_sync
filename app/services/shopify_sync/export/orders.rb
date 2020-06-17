@@ -72,7 +72,7 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 		  country: order_address.country.name,
 		  last_name: order_address.lastname,
 		  address2: order_address.address2,
-		  country_code: order_address.country.iso3,
+		  country_code: order_address.country.iso,
 		}
 	end
 
