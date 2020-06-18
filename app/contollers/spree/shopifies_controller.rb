@@ -1,4 +1,4 @@
-class Spree::ShopifysController < Spree::StoreController
+class Spree::ShopifiesController < Spree::StoreController
 
   def show
     redirect_to "https://{params[:shop]}.myshopify.com/admin/oauth/request_grant?client_id={ENV['SHOPIFY_API_KEY']}&scope={scopes}&redirect_uri={confirm_admin_shopify_sync_path}&state={nonce}"
