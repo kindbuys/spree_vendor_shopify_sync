@@ -23,6 +23,7 @@ module Spree
       end
 
       def confirm
+        binding.pry
         if validate_request
           response = fetch_shopify_code
 
