@@ -1,8 +1,14 @@
 class Spree::ShopifiesController < Spree::StoreController
 
   def show
-    redirect_to "https://#{params[:shop]}/admin/oauth/request_grant?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/admin/shopify_sync&state=#{nonce}"
+    redirect_to "https://#{params[:shop]}/admin/oauth/request_grant?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/admin/shopify_sync/confirm&state=#{nonce}"
   end
+
+  def request
+  	
+  end
+
+  private
 
   def nonce
   	val = (0...8).map { (65 + rand(26)).chr }.join

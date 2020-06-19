@@ -11,5 +11,8 @@ Spree::Core::Engine.add_routes do
 	  end
 	end
 
-	resource :shopify, only: :show
+	resource :shopify, only: :show do
+		get :request
+	end
+
 end

@@ -23,7 +23,9 @@ module Spree
       end
 
       def confirm
-        if validate_request
+        if current_spree_user.blank?
+          redirect_to request_shopify_sync_path
+        elsif validate_request
           response = fetch_shopify_code
 
           if response.code != '200'
