@@ -170,6 +170,7 @@ module Spree
       end
 
       def authorize
+        binding.pry
         authorize! :manage, :vendor_settings
       end
 
