@@ -7,7 +7,7 @@ class Spree::ShopifiesController < Spree::StoreController
   def install
   	if current_spree_user.present?
       redirect_to confirm_admin_shopify_sync_path
-    else
+   	end
   end
 
   private
