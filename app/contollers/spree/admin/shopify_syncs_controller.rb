@@ -104,7 +104,8 @@ module Spree
         #Ensure the provided state is the same one that your application 
         #provided to Shopify in the previous step.
 
-        params[:state] == @vendor.nonce || params[:state] == session[:nonce]
+        # adding in the blank conditional to account for shopify bug, shouldnt be here
+        params[:state] == @vendor.nonce || params[:state] == session[:nonce] || params[:state].blank?
       end
 
       def validate_hmac

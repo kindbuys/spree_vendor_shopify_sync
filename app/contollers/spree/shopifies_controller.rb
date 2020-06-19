@@ -5,7 +5,6 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def install
-  	binding.pry
   	if current_spree_user.present?
       redirect_to confirm_admin_shopify_sync_path(
       	hmac: params[:hmac], 
