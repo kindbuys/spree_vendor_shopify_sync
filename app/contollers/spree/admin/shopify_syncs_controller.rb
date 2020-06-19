@@ -104,7 +104,7 @@ module Spree
         #Ensure the provided state is the same one that your application 
         #provided to Shopify in the previous step.
 
-        params[:state] == @vendor.nonce
+        params[:state] == @vendor.nonce || params[:state] == session[:nonce]
       end
 
       def validate_hmac
