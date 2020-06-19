@@ -1,11 +1,13 @@
 class Spree::ShopifiesController < Spree::StoreController
 
   def show
-    redirect_to "https://#{params[:shop]}/admin/oauth/request_grant?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/admin/shopify_sync/confirm&state=#{nonce}"
+    redirect_to "https://#{params[:shop]}/admin/oauth/request_grant?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/shopify_sync/install&state=#{nonce}"
   end
 
   def install
-
+  	if current_spree_user.present?
+      redirect_to confirm_admin_shopify_sync_path
+    else
   end
 
   private

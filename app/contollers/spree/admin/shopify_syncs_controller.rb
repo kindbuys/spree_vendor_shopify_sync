@@ -23,9 +23,7 @@ module Spree
       end
 
       def confirm
-        if current_spree_user.blank?
-          redirect_to install_shopify_sync_path
-        elsif validate_request
+        if validate_request
           response = fetch_shopify_code
 
           if response.code != '200'
@@ -170,7 +168,6 @@ module Spree
       end
 
       def authorize
-        binding.pry
         authorize! :manage, :vendor_settings
       end
 
