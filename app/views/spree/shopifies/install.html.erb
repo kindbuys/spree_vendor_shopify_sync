@@ -5,21 +5,20 @@
 				<div class='coming-soon-header'>Shopify Sync Install</div>
 				<div class='coming-soon-subheader'>
 					Doesn't look like you're logged in to KindBuys.
-				</div>
-				<div class='coming-soon-subheader'>
+					<br /><br />
 					If you have an account, please login to start syncing Shopify.
-				</div>
-				<div class='coming-soon-subheader'>
-					If you do not have an account, and would like to start selling on our platform, please contact us using the form below.
+					<br /><br />
+					If you do not have an account, and would like to start selling on our platform, please visit the vendor sign up page and contact us.
 				</div>
 
-				<%= form_for Contact.new, remote: true do |f| %>
-					<%= f.hidden_field :content, value: 'sign up' %>
-					<%= f.text_field :email, placeholder: 'Email' %>
-					<div>
-						<%= f.submit 'Submit', class: 'submit-btn' %>
-					</div>
-				<% end %>
+				<div class='inline-buttons'>
+					<button class="btn contact-button green-button btn-success">
+						<%= link_to 'Become a Vendor', about_vendors_path(anchor: 'contact') %>
+					</button>
+					<button class="btn contact-button green-button btn-success">
+						<%= link_to 'Login', admin_login_path %>
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>

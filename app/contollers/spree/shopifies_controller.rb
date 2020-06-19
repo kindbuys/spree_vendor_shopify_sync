@@ -8,6 +8,8 @@ class Spree::ShopifiesController < Spree::StoreController
   	if current_spree_user.present?
       redirect_to confirm_admin_shopify_sync_path
    	end
+
+   	session["spree_user_return_to"] = confirm_admin_shopify_sync_path
   end
 
   private
