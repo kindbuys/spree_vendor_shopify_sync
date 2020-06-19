@@ -1,8 +1,26 @@
-<div>
-	Doesn't look like you're logged in to KindBuys.
+<div class='container'>
+	<div class='shop-coming-soon'>
+		<div class='row'>
+			<div class='col-sm-12'>
+				<div class='coming-soon-header'>Shopify Sync Install</div>
+				<div class='coming-soon-subheader'>
+					Doesn't look like you're logged in to KindBuys.
+				</div>
+				<div class='coming-soon-subheader'>
+					If you have an account, please login to start syncing Shopify.
+				</div>
+				<div class='coming-soon-subheader'>
+					If you do not have an account, and would like to start selling on our platform, please contact us using the form below.
+				</div>
 
-	If you have an account, please login to start syncing Shopify.
-
-	If you do not have an account, and would like to start selling on our platform, please contact us using the form below.
+				<%= form_for Contact.new, remote: true do |f| %>
+					<%= f.hidden_field :content, value: 'sign up' %>
+					<%= f.text_field :email, placeholder: 'Email' %>
+					<div>
+						<%= f.submit 'Submit', class: 'submit-btn' %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
-
