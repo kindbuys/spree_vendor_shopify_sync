@@ -14,7 +14,13 @@ class Spree::ShopifiesController < Spree::StoreController
       	timestamp: params[:timestamp])
    	end
 
-   	session["spree_user_return_to"] = admin_shopify_sync_path
+   	session["spree_user_return_to"] = confirm_admin_shopify_sync_path(
+    	hmac: params[:hmac], 
+    	state: params[:state],
+    	code: params[:code],
+    	shop: params[:shop],
+    	timestamp: params[:timestamp]
+    )
   end
 
   private
