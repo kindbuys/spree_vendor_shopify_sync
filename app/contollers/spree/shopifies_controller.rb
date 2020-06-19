@@ -4,8 +4,8 @@ class Spree::ShopifiesController < Spree::StoreController
     redirect_to "https://#{params[:shop]}/admin/oauth/request_grant?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/admin/shopify_sync/confirm&state=#{nonce}"
   end
 
-  def request
-  	
+  def install
+
   end
 
   private

@@ -24,7 +24,7 @@ module Spree
 
       def confirm
         if current_spree_user.blank?
-          redirect_to request_shopify_sync_path
+          redirect_to install_shopify_sync_path
         elsif validate_request
           response = fetch_shopify_code
 
