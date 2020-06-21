@@ -1,7 +1,7 @@
 class Spree::ShopifiesController < Spree::StoreController
 
   def show
-    redirect_to "https://#{params[:shop]}/admin/oauth/request_grant?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/shopify/install&state=#{nonce}"
+    redirect_to "https://#{params[:shop]}/admin/oauth/authorize?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/shopify/install&state=#{nonce}"
   end
 
   def install

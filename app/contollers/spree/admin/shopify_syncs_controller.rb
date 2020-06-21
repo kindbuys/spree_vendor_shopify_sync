@@ -23,7 +23,6 @@ module Spree
       end
 
       def confirm
-        binding.pry
         if validate_request
           response = fetch_shopify_code
 
@@ -105,8 +104,7 @@ module Spree
         #Ensure the provided state is the same one that your application 
         #provided to Shopify in the previous step.
 
-        # adding in the blank conditional to account for shopify bug, shouldnt be here
-        params[:state] == @vendor.nonce || params[:state] == session[:nonce] || params[:state].blank?
+        params[:state] == @vendor.nonce || params[:state] == session[:nonce]
       end
 
       def validate_hmac
