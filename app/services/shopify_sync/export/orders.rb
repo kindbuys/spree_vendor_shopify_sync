@@ -33,6 +33,7 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 
 			if shopify_order.save
 				order.update_attributes(shopify_id: shopify_order.id)
+				log_order
 			else
 				log_order(shopify_order.errors.details)
 			end

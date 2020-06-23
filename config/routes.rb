@@ -13,6 +13,7 @@ Spree::Core::Engine.add_routes do
 
 	resource :shopify, only: :show do
 		get :install
+		get :redact
 	end
-
 end
+

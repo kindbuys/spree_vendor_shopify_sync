@@ -23,6 +23,16 @@ class Spree::ShopifiesController < Spree::StoreController
     )
   end
 
+  # Don't think any of the redactions/requests apply since we are not
+  # saving data from Shopify.
+  def redact
+		#vendor = Spree::Vendor.find_by(shopify_domain: params[:shopify_domain])
+		#order_ids_to_redact = params[:orders_to_redact]
+
+		#vendor.orders.where(shopify_id: order_ids_to_redact).update_all(shopify_id: nil)
+    render json: {status: :ok}
+  end
+
   private
 
   def nonce
