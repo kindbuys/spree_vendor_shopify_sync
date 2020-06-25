@@ -70,6 +70,8 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 		  phone: order_address.phone,
 		  city: order_address.city,
 		  zip: order_address.zipcode,
+		  province: order_address.state.name,
+		  province_code: order_address.state.abbr,
 		  country: order_address.country.name,
 		  last_name: order_address.lastname,
 		  address2: order_address.address2,
