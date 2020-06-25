@@ -30,7 +30,7 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 			shopify_order.billing_address = address(:billing_address)
 			shopify_order.shipping_address = address(:shipping_address)
 			shopify_order.shipping_lines = shipping
-
+			binding.pry
 			if shopify_order.save
 				order.update_attributes(shopify_id: shopify_order.id)
 				log_order
