@@ -75,7 +75,7 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 		  country: order_address.country.try(:name),
 		  last_name: order_address.lastname,
 		  address2: order_address.address2,
-		  country_code: order_address.country.iso,
+		  country_code: order_address.country.iso3,
 		}
 	end
 

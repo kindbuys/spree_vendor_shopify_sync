@@ -1,5 +1,6 @@
 Spree::Order.class_eval do
 	after_save :sync_shopify_order
+	has_many :sync_logs, as: :syncable
 
 	def weight
 		variants.map(&:weight).sum
@@ -7,6 +8,7 @@ Spree::Order.class_eval do
 
 	def sync_shopify_order
 		if state == 'complete'
+			binding.pry
 			# this runs multiple times ... prevent some
 			vendors.each do |vendor|
 				ShopifyOrderExport.perform_async(vendor.id, id)
