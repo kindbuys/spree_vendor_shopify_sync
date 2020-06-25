@@ -30,7 +30,7 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 			shopify_order.billing_address = address(:billing_address)
 			shopify_order.shipping_address = address(:shipping_address)
 			shopify_order.shipping_lines = shipping
-			binding.pry
+
 			if shopify_order.save
 				order.update_attributes(shopify_id: shopify_order.id)
 				log_order
@@ -70,9 +70,9 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 		  phone: order_address.phone,
 		  city: order_address.city,
 		  zip: order_address.zipcode,
-		  province: order_address.state.name,
-		  province_code: order_address.state.abbr,
-		  country: order_address.country.name,
+		  province: order_address.state.try(:name),
+		  province_code: order_address.state.try(:abbr),
+		  country: order_address.country.try(:name),
 		  last_name: order_address.lastname,
 		  address2: order_address.address2,
 		  country_code: order_address.country.iso,
