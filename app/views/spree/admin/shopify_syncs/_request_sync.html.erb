@@ -28,7 +28,15 @@
 				<tr>
 					<td><%= log.created_at_str %></td>
 					<td><%= log.action_str %></td>
-					<td><%= log.descriptor %></td>
+					<td>
+						<% if log.syncable_type == 'Spree::Vendor' %>
+							<%= log.options['shopify_domain'] %>
+						<% elsif log.syncable_type == 'Spree::Product' %>
+							<%= log.options['title'] %>
+						<% elsif log.syncable_type == 'Spree::Order' %>
+							<%= log.syncable.try(:number) %>
+						<% end %>
+					</td>
 					<td><%= log.status %></td>
 					<td><%= log.message %></td>
 				</tr>
