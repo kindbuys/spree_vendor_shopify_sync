@@ -1,5 +1,6 @@
 module Spree
-  class SyncLog < Spree::Base	  
+  class SyncLog < Spree::Base
+  	self.table_name_prefix 'spree_'  
 		belongs_to :vendor
 
 		def descriptor
