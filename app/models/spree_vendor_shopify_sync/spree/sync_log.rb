@@ -1,4 +1,4 @@
-class Spree::SyncLog < ApplicationRecord
+class Spree::SyncLog < Spree::Base
   self.table_name = 'sync_logs'
   
 	belongs_to :vendor
