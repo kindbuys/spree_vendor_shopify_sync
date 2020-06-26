@@ -24,7 +24,7 @@
 			<th>Message</th>
 		</thead>
 		<tbody>
-			<% vendor.sync_logs.order(created_at: :desc) each do |log| %>
+			<% vendor.sync_logs.order(created_at: :desc).each do |log| %>
 				<tr>
 					<td><%= log.created_at_str %></td>
 					<td><%= log.action_str %></td>
