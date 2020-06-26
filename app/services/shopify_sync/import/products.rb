@@ -46,7 +46,7 @@ class ShopifySync::Import::Products
 			action: 'product_import', 
 			message: e,
 			status: 'FAIL',
-			vendor: vendor
+			vendor_id: vendor.id
 		)
 	end
 

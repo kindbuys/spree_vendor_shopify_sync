@@ -108,7 +108,7 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 			message: err.present? ? err : nil,
 			status: err.present? ? 'FAIL' : 'SUCCESS',
 			syncable: order,
-			vendor: vendor
+			vendor_id: vendor.id
 		)
 	end
 end
