@@ -36,7 +36,8 @@ class ShopifySync::Import::Products
 				provider: 'shopify', 
 				action: 'product_import', 
 				options: JSON.parse(shopify_product.to_json),
-				status: 'OK'
+				status: 'OK',
+				vendor_id: vendor.id
 			)
 		end
 	rescue => e
