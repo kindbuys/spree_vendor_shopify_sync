@@ -28,26 +28,7 @@
 				<tr>
 					<td><%= log.created_at_str %></td>
 					<td><%= log.action_str %></td>
-					<td><%= log.options['shopify_domain'] %></td>
-					<td><%= log.status %></td>
-					<td><%= log.message %></td>
-				</tr>
-			<% end %>
-			<% vendor.product_sync_logs.each do |log| %>
-				<tr>
-					<td><%= log.created_at_str %></td>
-					<td><%= log.action_str %></td>
-					<td><%= log.options['title'] %></td>
-					<td><%= log.status %></td>
-					<td><%= log.message %></td>
-				</tr>
-			<% end %>
-
-			<% vendor.order_sync_logs.each do |log| %>
-				<tr>
-					<td><%= log.created_at_str %></td>
-					<td><%= log.action_str %></td>
-					<td><%= log.syncable.try(:number) %></td>
+					<td><%= log.descriptor %></td>
 					<td><%= log.status %></td>
 					<td><%= log.message %></td>
 				</tr>

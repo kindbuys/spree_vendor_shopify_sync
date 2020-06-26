@@ -5,11 +5,11 @@ module Spree
     class ShopifySyncsController < Spree::Admin::BaseController
       skip_before_action :authorize_admin
       before_action :authorize
-      before_action :load_vendor, except: [:request_access, :sync_product, :delete_product]
+      before_action :load_vendor, except: [:request_access, :sync_product, :delete_product, :uninstall]
       before_action :set_vendor, only: :request_access
-      before_action :verify_webhook, only: [:sync_product, :delete_product]
+      before_action :verify_webhook, only: [:sync_product, :delete_product, :uninstall]
       skip_before_action :verify_authenticity_token, only: [:sync_product, :delete_product]
-      skip_before_action :authorize, only: [:sync_product, :delete_product]
+      skip_before_action :authorize, only: [:sync_product, :delete_product, :uninstall]
 
       def show
 
@@ -42,6 +42,13 @@ module Spree
 
       def import_products
         ShopifyProductSync.perform_async(@vendor.id)
+        render json: {status: :ok}
+      end
+
+      def uninstall
+        domain = request.headers["X-Shopify-Shop-Domain"]
+        vendor = Spree::Vendor.find_by(shopify_domain: domain)
+        vendor.update_attributes(encrypted_shopify_token: nil, shopify_domain: nil)
         render json: {status: :ok}
       end
 

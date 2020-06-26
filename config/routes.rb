@@ -7,6 +7,7 @@ Spree::Core::Engine.add_routes do
 	      post :sync_product
 	      post :delete_product
 	      get :import_products
+	      post :uninstall
 	    end
 	  end
 	end

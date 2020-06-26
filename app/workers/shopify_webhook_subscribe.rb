@@ -11,6 +11,7 @@ class ShopifyWebhookSubscribe
 	    ShopifyAPI::Webhook.create( :topic => 'products/create', :format  => 'json', :address => "#{KINDBUYS_URL}/admin/shopify_sync/sync_product")
 	  	ShopifyAPI::Webhook.create( :topic => 'products/update', :format  => 'json', :address => "#{KINDBUYS_URL}/admin/shopify_sync/sync_product")
 	  	ShopifyAPI::Webhook.create( :topic => 'products/delete', :format  => 'json', :address => "#{KINDBUYS_URL}/admin/shopify_sync/delete_product")
+	  	ShopifyAPI::Webhook.create( :topic => 'app/uninstalled', :format  => 'json', :address => "#{KINDBUYS_URL}/admin/shopify_sync/uninstall")
 	  end
 	end
 end

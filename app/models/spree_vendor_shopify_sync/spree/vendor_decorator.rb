@@ -4,9 +4,7 @@ Spree::Vendor.class_eval do
 
   after_save :update_sync
 
-  has_many :sync_logs, as: :syncable
-  has_many :product_sync_logs, through: :products, source: :sync_logs
-  has_many :order_sync_logs, through: :orders, source: :sync_logs
+  has_many :sync_logs
 
   def nonce
     "#{name}-#{id}-#{created_at}"
@@ -21,6 +19,7 @@ Spree::Vendor.class_eval do
           provider: 'shopify', 
           status: 'OK',
           action: 'vendor_sync', 
+          syncable: self,
           options: {
             shopify_domain: shopify_domain
           }
@@ -30,6 +29,7 @@ Spree::Vendor.class_eval do
           provider: 'shopify', 
           status: 'OK',
           action: 'vendor_disconnect', 
+          syncable: self,
           options: {
             shopify_domain: shopify_domain
           }

@@ -8,9 +8,8 @@ Spree::Order.class_eval do
 
 	def sync_shopify_order
 		if state == 'complete'
-			# this runs multiple times ... prevent some
 			vendors.uniq.each do |vendor|
-				ShopifyOrderExport.perform_async(vendor.id, id)
+				ShopifyOrderExport.perform_async(vendor.id, id) unless vendor.reload.sync_logs.where(syncable == self)
 			end
 		end
 	end
