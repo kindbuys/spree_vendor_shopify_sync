@@ -1,4 +1,6 @@
-class Spree::SyncLog < Spree::Base
+class Spree::SyncLog < ApplicationRecord
+  self.table_name = 'sync_logs'
+  
 	belongs_to :vendor
 
 	def descriptor
