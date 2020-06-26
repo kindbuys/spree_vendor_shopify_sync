@@ -85,6 +85,10 @@ module Spree
         else
           @vendor = nil
         end
+
+        if @vendor.present?
+          session[:vendor] = @vendor.id
+        end
       end
 
       def url
@@ -155,7 +159,7 @@ module Spree
 
       def save_access_token(response)
         access_token = JSON.parse(response.body)['access_token']
-        vendor = Spree::Vendor.friendly.find(session[:vendor])
+        vendor = Spree::Vendor.friendly.find_by(id: session[:vendor]) || current_spree_user.vendors.first
         
         if vendor.present? && access_token.present?
           vendor.shopify_token = access_token
