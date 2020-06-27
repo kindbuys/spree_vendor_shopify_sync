@@ -6,6 +6,8 @@ class ShopifySync::Export::Orders < ShopifySync::Base
 	end
 
 	def export_order
+		return if vendor.reload.sync_logs.where(syncable: order).present?
+
 		ActiveRecord::Base.transaction do
 			shopify_order = ShopifyAPI::Order.new(
 				email: order.email,
