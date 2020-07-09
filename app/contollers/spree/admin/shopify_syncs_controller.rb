@@ -108,6 +108,7 @@ module Spree
       end
 
       def validate_request
+        binding.pry
         validate_state && validate_hmac && validate_hostname
       end
 
