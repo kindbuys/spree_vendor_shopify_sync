@@ -50,7 +50,6 @@ class Spree::ShopifiesController < Spree::StoreController
    # 	timestamp: params[:timestamp]
    # )
    if validate_request
-      binding.pry
       response = fetch_shopify_code
 
       if response.code != '200'
@@ -90,7 +89,6 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def validate_request
-    binding.pry
     validate_state && validate_hmac && validate_hostname
   end
 
@@ -142,7 +140,6 @@ class Spree::ShopifiesController < Spree::StoreController
 
   def save_access_token(response)
     access_token = JSON.parse(response.body)['access_token']
-    binding.pry
     vendor = Spree::Vendor.friendly.find_by(shopify_domain: params[:shop])
     
     if vendor.present? && access_token.present?
