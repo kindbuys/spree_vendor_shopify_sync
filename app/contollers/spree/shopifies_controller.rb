@@ -80,7 +80,9 @@ class Spree::ShopifiesController < Spree::StoreController
   private
 
   def nonce
-    rand(10 ** 30).to_s.rjust(30,'0')
+    state_nonce = rand(10 ** 30).to_s.rjust(30,'0')
+    session[:state] = state_nonce
+    state_nonce
   end
 
   def scopes
@@ -96,7 +98,7 @@ class Spree::ShopifiesController < Spree::StoreController
     #Ensure the provided state is the same one that your application 
     #provided to Shopify in the previous step.
 
-    params[:state] == @vendor.try(:nonce) || params[:state] == session[:nonce]
+    params[:state] == session[:state]
   end
 
   def validate_hmac
