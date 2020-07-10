@@ -138,11 +138,10 @@ class Spree::ShopifiesController < Spree::StoreController
 
   def save_access_token(response)
     access_token = JSON.parse(response.body)['access_token']
-    vendor = Spree::Vendor.friendly.find_by(id: session[:vendor]) || current_spree_user.vendors.first
+    vendor = Spree::Vendor.friendly.find_by(shopify_domain: params[:shop])
     
     if vendor.present? && access_token.present?
       vendor.shopify_token = access_token
-      vendor.shopify_domain = params[:shop]
       vendor.save
     end
   end
