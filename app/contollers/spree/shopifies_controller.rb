@@ -5,7 +5,7 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def request_access
-    ShopifyAPI::Session.setup(api_key: ENV['SHOPIFY_API_KEY'], secret: ENV['SHOPIFY_SECRET_API_KEY'])
+    ::ShopifyAPI::Session.setup(api_key: ENV['SHOPIFY_API_KEY'], secret: ENV['SHOPIFY_SECRET_API_KEY'])
     shopify_session = ShopifyAPI::Session.new(domain: params[:shop], api_version: ENV['SHOPIFY_API_VERSION'], token: nil)
     permission_url = shopify_session.create_permission_url(scope_list, "#{KINDBUYS_URL}/shopify/install", { state: nonce })
     redirect_to permission_url
