@@ -5,6 +5,8 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def install
+    response.headers["X-FRAME-OPTIONS"] = "ALLOW-ALL"
+
   	if current_spree_user.present?
       redirect_to confirm_admin_shopify_sync_path(
       	hmac: params[:hmac], 
@@ -42,6 +44,6 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def scopes
-    'read_products,read_product_listings,read_orders,write_orders,read_draft_orders,write_draft_orders,read_inventory,write_inventory,read_locations'
+    'read_product_listings,write_checkouts'
   end
 end
