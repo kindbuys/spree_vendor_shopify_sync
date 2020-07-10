@@ -6,10 +6,9 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def request_access
-    binding.pry
     ShopifyAPI::Session.setup(api_key: ENV['SHOPIFY_API_KEY'], secret: ENV['SHOPIFY_SECRET_API_KEY'])
     shopify_session = ShopifyAPI::Session.new(domain: params[:shop], api_version: ENV['SHOPIFY_API_VERSION'], token: nil)
-    permission_url = shopify_session.create_permission_url(scope_list, "#{KINDBUYS_URL}/shopify/confirm", { state: nonce })
+    permission_url = shopify_session.create_permission_url(scope_list, "#{KINDBUYS_URL}/shopify/install", { state: nonce })
     redirect_to permission_url
   end
 
@@ -32,24 +31,39 @@ class Spree::ShopifiesController < Spree::StoreController
   end
 
   def install
-    response.headers["X-FRAME-OPTIONS"] = "ALLOW-ALL"
+    #response.headers["X-FRAME-OPTIONS"] = "ALLOW-ALL"
 
-  	if current_spree_user.present?
-      redirect_to confirm_admin_shopify_sync_path(
-      	hmac: params[:hmac], 
-      	state: params[:state],
-      	code: params[:code],
-      	shop: params[:shop],
-      	timestamp: params[:timestamp])
-   	end
+  	#if current_spree_user.present?
+    #  redirect_to confirm_admin_shopify_sync_path(
+    #  	hmac: params[:hmac], 
+    #  	state: params[:state],
+    #  	code: params[:code],
+    #  	shop: params[:shop],
+    #  	timestamp: params[:timestamp])
+   	#end
 
-   	session["spree_user_return_to"] = confirm_admin_shopify_sync_path(
-    	hmac: params[:hmac], 
-    	state: params[:state],
-    	code: params[:code],
-    	shop: params[:shop],
-    	timestamp: params[:timestamp]
-    )
+   	#session["spree_user_return_to"] = confirm_admin_shopify_sync_path(
+   # 	hmac: params[:hmac], 
+   # 	state: params[:state],
+   # 	code: params[:code],
+   # 	shop: params[:shop],
+   # 	timestamp: params[:timestamp]
+   # )
+   if validate_request
+      response = fetch_shopify_code
+
+      if response.code != '200'
+        flash[:error] = response.message
+      else
+        flash[:success] = "Success! #{params[:shop]} is now linked to KindBuys"
+
+        save_access_token(response)
+      end
+    else
+      flash[:error] = "Invalid Request"
+    end
+
+    redirect_to 'localhost:3000'
   end
 
   # Don't think any of the redactions/requests apply since we are not
