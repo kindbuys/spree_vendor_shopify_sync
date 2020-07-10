@@ -50,6 +50,7 @@ class Spree::ShopifiesController < Spree::StoreController
    # 	timestamp: params[:timestamp]
    # )
    if validate_request
+      binding.pry
       response = fetch_shopify_code
 
       if response.code != '200'
