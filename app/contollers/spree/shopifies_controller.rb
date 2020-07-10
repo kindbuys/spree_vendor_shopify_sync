@@ -1,7 +1,6 @@
 require 'shopify_api'
 
 class Spree::ShopifiesController < Spree::StoreController
-
   def show
     redirect_to "https://#{params[:shop]}/admin/oauth/authorize?client_id=#{ENV['SHOPIFY_API_KEY']}&scope=#{scopes}&redirect_uri=#{KINDBUYS_URL}/shopify/install&state=#{nonce}"
   end
@@ -9,13 +8,31 @@ class Spree::ShopifiesController < Spree::StoreController
   def request_access
     ShopifyAPI::Session.setup(api_key: ENV['SHOPIFY_API_KEY'], secret: ENV['SHOPIFY_SECRET_API_KEY'])
     shopify_session = ShopifyAPI::Session.new(domain: params[:shop], api_version: ENV['SHOPIFY_API_VERSION'], token: nil)
-    permission_url = shopify_session.create_permission_url(scope_list, "#{KINDBUYS_URL}/shopify/install", { state: nonce })
+    permission_url = shopify_session.create_permission_url(scope_list, "#{KINDBUYS_URL}/shopify/confirm", { state: nonce })
     redirect_to permission_url
+  end
+
+  def confirm
+    if validate_request
+      response = fetch_shopify_code
+
+      if response.code != '200'
+        flash[:error] = response.message
+      else
+        flash[:success] = "Success! #{params[:shop]} is now linked to KindBuys"
+
+        save_access_token(response)
+      end
+    else
+      flash[:error] = "Invalid Request"
+    end
+
+    redirect_to 'localhost:3000'
   end
 
   def install
     response.headers["X-FRAME-OPTIONS"] = "ALLOW-ALL"
-    binding.pry
+
   	if current_spree_user.present?
       redirect_to confirm_admin_shopify_sync_path(
       	hmac: params[:hmac], 
