@@ -63,7 +63,7 @@ class Spree::ShopifiesController < Spree::StoreController
       flash[:error] = "Invalid Request"
     end
 
-    redirect_to "https://#{params[:shop]}/admin/apps/kindbuys_sales_channel"
+    redirect_to "https://#{params[:shop]}/admin/apps/kindbuys-sales-channel"
   end
 
   # Don't think any of the redactions/requests apply since we are not
